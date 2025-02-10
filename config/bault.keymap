@@ -25,30 +25,76 @@
 
         base {
             bindings = <
-                &kp Q      &kp W      &kp E      &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O      &kp P      &kp LEFT_BRACKET
-                &hm LEFT_CONTROL A  &hm LEFT_ALT S  &hm LGUI D  &hm LEFT_SHIFT F  &kp G      &kp H      &hm RIGHT_SHIFT J  &hm RIGHT_GUI K  &hm LEFT_ALT L  &hm RCTRL SEMICOLON
-                &kp Z      &kp X      &kp C      &kp V      &kp B      &kp N      &kp M      &kp COMMA      &kp PERIOD      &kp SLASH
-                &kp N0      &mo 3      &kp ENTER      &kp SPACE      &kp BACKSPACE      &mo 1      &mo 2      &kp N0
+            //┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬─-─────────╮
+            //│   Q      │  W       │  E       │  R       │  T       │  Y       │  U       │  I       │  O       │   P      │    BKSP   |
+                &kp Q      &kp W      &kp E      &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BKSP
+            //├──────────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───────────┤
+            //│      A       │  S       │  D       │  F       │  G       │  H       │  J       │  K       │  L       │       ENTER      |
+                &hm LCTRL A     &kp S    &kp D       &kp F      &kp G      &kp H      &kp J      &kp K       &hkp L       &kp ENTER
+            //├──────────────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────────────┤
+            //│          Z       │  X       │  C       │  V       │  B       |   N      │  M       │ , <      │ . >      │     RSHIFT   |
+                &hm LGUI Z          &kp X      &kp C      &kp V      &kp B      &kp N      &kp M    &kp COMMA   &kp PERIOD   &kp RSHIFT
+            //├───────────────┬──╯───────┬──╯───────┬──╯──────────╯───────┬──╯──────────╯───────┬──╯───────┬──╯───────┬──╯──────────────┤
+            //                |   LALT   |   MO2    |       BACKSPACE     |       SPACE         |   MO1    |  MO3     |
+                  &none        &hm LALT Z    &mo 2      &kp BKSP               &kp SPACE           &mo 1      &mo 3       &none
+            //                ┴──────────╯──────────╯────────────────--───╯──────------------───╯──────────╯──────────╯
             >;
         };
-
 
         layer_1 {
             bindings = <
-                &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7    &kp N8    &kp N9     &kp N0     &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans    &kp UP    &kp MINUS  &kp EQUAL
-                &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans
-                &kp N0   &trans  &trans  &trans  &trans  &trans    &trans &kp N0
+
+            //┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬─-─────────╮
+            //│   1      │  2       │  3       │  4       │  5       │     6    │     7    │     8    │     9    │   0      │    DEL    |
+                 &kp N1     &kp N2    &kp N3    &kp N4     &kp N5     &kp N6      &kp N7     &kp N8     &kp N9     &kp N0     &kp DEL
+            //├──────────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───────────┤
+            //│     TAB      │     `    │     '    │    ;     │    \     │    -     │     =    │   [      │     ]    │       ENTER      |
+                &kp TAB       &kp GRAVE   &kp APOS   &kp SEMI   &kp BSLH  &kp MINUS   &kp EQUAL  &kp LBKT   &kp RBKT        &kp ENTER 
+            //├──────────────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────────────┤
+            //│                  │          │          │          │          |          │          │          │     /    │     RSHIFT   |
+                     &kp LGUI       &trans     &trans     &trans     &trans      &trans     &trans   &trans     &kp FSLH      &trans
+            //├───────────────┬──╯───────┬──╯───────┬──╯──────────╯───────┬──╯──────────╯───────┬──╯───────┬──╯───────┬──╯──────────────┤
+            //                |   LALT   |   MO2    |       BACKSPACE     |       SPACE         |   MO1    |  MO3     |
+                  &none        &hm LALT Z   &mo 2           &kp BKSP            &kp SPACE          &mo 1      &mo 3       &none
+            //                ┴──────────╯──────────╯────────────────--───╯──────------------───╯──────────╯──────────╯
             >;
         };
 
-
-        connectivity {
+        layer_2 {
             bindings = <
-                &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bootloader
-                &trans  &trans  &trans  &trans  &trans  &trans        &trans        &trans        &trans        &trans
-                &trans  &trans  &trans  &trans  &trans  &bt BT_CLR    &out OUT_BLE  &out OUT_USB  &out OUT_TOG  &trans
-                &kp N0   &trans  &trans  &trans  &trans        &trans        &trans &kp N0
+
+            //┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬─-─────────╮
+            //│    !     │     @    │     #    │     $    │     %    │     ^    │     &    │     *    │     (    │   )      │    DEL    |
+                &kp EXCL    &kp AT   &kp POUND   &kp DLLR  &kp PRCNT   &kp CARET  &kp AMPS   &kp STAR   &kp LPAR   &kp RPAR &kp DEL
+            //├──────────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───────────┤
+            //│     TAB      │     ~    │     "    │    :     │    |     │    _     │     +    │   {      │  }       │       ENTER      |
+                   &kp TAB      &kp TILDE  &kp DQT   &kp COLON  &kp PIPE2  &kp UNDER   &kp PLUS   &kp LBRC   &kp RBRC     &kp ENTER 
+            //├──────────────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────────────┤
+            //│                  │          │          │          │          |          │          │          │     ?    │    RSHIFT    |
+                     &kp LGUI      &trans     &trans     &trans     &trans      &trans     &trans   &trans     &kp QMARK      &trans
+            //├───────────────┬──╯───────┬──╯───────┬──╯──────────╯───────┬──╯──────────╯───────┬──╯───────┬──╯───────┬──╯──────────────┤
+            //                |   LALT   |   MO2    |       BACKSPACE     |       SPACE         |   MO1    |  MO3     |
+                  &none        &hm LALT Z   &mo 2           &kp BKSP            &kp SPACE          &mo 1      &mo 3       &none
+            //                ┴──────────╯──────────╯────────────────--───╯──────------------───╯──────────╯──────────╯
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+
+            //┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬─-─────────╮
+            //│   ESC    │          │          │          │          │          │          │          │          │          │           |
+                 &kp ESC  &kp HOME    &kp UP    &kp END   &kp PG_UP &kp C_VOL_UP &studio_unlock &none   &none      &none    &bt BT_CLR
+            //├──────────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───────────┤
+            //│     TAB      │          │          │          │          │          │          │          │          │       ENTER      |
+                  &kp TAB      &kp LEFT   &kp DOWN  &kp RIGHT   &kp PG_DN &kp C_VOL_DN  &none     &none      &none           &trans
+            //├──────────────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────╯───┬──────────────┤
+            //│                  │          │          │          │          |          │          │          │          │     RSHIFT   |
+                 &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none &none     &none      &none         &none
+            //├───────────────┬──╯───────┬──╯───────┬──╯──────────╯───────┬──╯──────────╯───────┬──╯───────┬──╯───────┬──╯──────────────┤
+            //                |   LALT   |   MO2    |       BACKSPACE     |       SPACE         |   MO1    |  MO3     |
+                  &none        &hm LALT Z   &mo 2           &kp BKSP            &kp SPACE          &mo 1      &mo 3       &none
+            //                ┴──────────╯──────────╯────────────────--───╯──────------------───╯──────────╯──────────╯
             >;
         };
     };
